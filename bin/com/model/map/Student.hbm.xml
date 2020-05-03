@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.model.map.Student" table="student"
+		catalog="HELLODB">
+		<cache usage="read-write" />
+		<id name="id" type="java.lang.Integer">
+			<generator class="sequence">
+				<param name="sequence">id_sequence</param>
+			</generator>
+		</id>
+
+		<property name="name" type="string">
+			<column name="name" length="50" not-null="true" unique="true"></column>
+		</property>
+
+		<property name="sureName" type="string">
+			<column name="sureName" length="80" not-null="true"
+				unique="true"></column>
+		</property>
+
+		<one-to-one name="studentInfo"
+			class="com.model.map.StudentInfo" cascade="save-update"></one-to-one>
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Mysql Connection -->
+		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
+			<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/new_schema?serverTimezone=Turkey</property> 
+			<property name="hibernate.connection.username">root</property> <property 
+			name="hibernate.connection.password">Bilgisayar.16</property> -->
+
+		<!-- Oracle Connection -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+		<property name="hibernate.connection.username">HELLODB</property>
+		<property name="hibernate.connection.password">Bilgisayar.16</property>
+
+		<!-- Apache Derby Connection -->
+		<!--<property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property> 
+			<property name="hibernate.connection.url">jdbc:derby://localhost:1527/deneme</property> 
+			<property name="hibernate.connection.username">root</property> <property 
+			name="hibernate.connection.password">Bilgisayar.16</property> -->
+
+		<!-- Postgr Connection -->
+		<!--<property name="hibernate.connection.driver_class">org.postgresql.Driver</property> 
+			<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postGrDB</property> 
+			<property name="hibernate.connection.username">welcome</property> <property 
+			name="hibernate.connection.password">Bilgisayar.16</property> -->
+
+		<property name="hibernate.connection.pool_size">10</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.jdbc.batch_size">50</property>
+		<!--<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property> -->
+
+		<!-- Oracle Connection -->
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle9iDialect</property>
+		<!-- Postgr Connection -->
+		<!--<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> -->
+
+		<!-- Apache Derby Connection -->
+		<!-- <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property> -->
+		<property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
+		<property name="hbm2ddl.auto">create</property> <!-- create or update -->
+		<mapping resource="com\model\map\Student.hbm.xml" />
+		<mapping resource="com\model\map\StudentInfo.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
